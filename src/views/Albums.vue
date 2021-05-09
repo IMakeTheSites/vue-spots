@@ -3,13 +3,13 @@
     <h1>View Your Albums</h1>
     <h2>Click One to Make Notes</h2>
 
-    <ul>
+    <b-list-group horizontal="md">
       <router-link to="/form"
-        ><li v-for="album in albums" :key="album.name">
+        ><b-list-group-item v-for="album in albums" :key="album.name">
           {{ album.album.name }}
-        </li></router-link
+        </b-list-group-item></router-link
       >
-    </ul>
+    </b-list-group>
   </div>
 </template>
 
@@ -33,7 +33,7 @@ export default {
         headers: {
           Authorization:
             "Bearer " +
-            "BQALNT3oiMM6a8nOPjzS1r837qj9a7y-zP-mUzi9sB0HeQ66g6eShkJSXc8JiXNWgFAhCMTmFMCeRDTLMDum_rXyohXHXL2S0A45BnCkkUsTWM0PTOmktGaPH4gqzeRKfDJu9wU_GBtmcV8rZoimTrgS0FUBLTeqTyagoR1Wyw",
+            "BQC6FMG_98amhJlqJDNK28u4FxkU2V3VnLP6xmCgOxZZ6l4_L8kPT4YJ-rjEhHWABODDyeqjIY2tU76WVKtl5L0D62bqD0f2f7eCdado8StjoKiOFF_Np-9H5HJr9IgycRLwffMFHYlss4lFuVOtOERJ3H2wde6GZGNB95WZnw",
         },
       })
       .then((res) => {
