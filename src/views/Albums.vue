@@ -17,7 +17,6 @@
 import Vue from "vue";
 import axios from "axios";
 import VueAxios from "vue-axios";
-// const accessToken =
 
 Vue.use(VueAxios, axios);
 export default {
@@ -27,17 +26,18 @@ export default {
     };
   },
   name: "Albums",
+  created() {},
   mounted() {
+    const hash = window.location.hash.substr(1);
+    const accessString = hash.indexOf("&");
+    const accessToken = hash.substring(13, accessString);
     Vue.axios
       .get("https://api.spotify.com/v1/me/albums", {
         headers: {
-          Authorization:
-            "Bearer " +
-            "BQC6FMG_98amhJlqJDNK28u4FxkU2V3VnLP6xmCgOxZZ6l4_L8kPT4YJ-rjEhHWABODDyeqjIY2tU76WVKtl5L0D62bqD0f2f7eCdado8StjoKiOFF_Np-9H5HJr9IgycRLwffMFHYlss4lFuVOtOERJ3H2wde6GZGNB95WZnw",
+          Authorization: "Bearer " + accessToken,
         },
       })
       .then((res) => {
-        // console.log(res.data.items);
         this.albums = res.data.items;
       })
       .catch((error) => {

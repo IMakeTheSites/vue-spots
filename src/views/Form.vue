@@ -29,7 +29,8 @@ export default {
         .post("http://jsonplaceholder.typicode.com/posts", this.form)
         .then((response) => {
           console.log(response);
-        }, this.$router.push({ name: "Albums" }))
+          this.$router.push({ name: "Albums" });
+        })
         .catch((error) => {
           console.log(error);
         }, this.$router.push({ name: "Form" }));
