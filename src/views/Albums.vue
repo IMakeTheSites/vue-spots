@@ -4,7 +4,11 @@
     <h2>Click One to Make Notes</h2>
 
     <ul>
-      <li v-for="album in albums" :key="album.name">{{ album.album.name }}</li>
+      <router-link to="/form"
+        ><li v-for="album in albums" :key="album.name">
+          {{ album.album.name }}
+        </li></router-link
+      >
     </ul>
   </div>
 </template>
@@ -29,7 +33,7 @@ export default {
         headers: {
           Authorization:
             "Bearer " +
-            "BQBBYumZ72Z988m2MlVI3xAhy5LnQLM2VHMblQuqQ7jsoCqF29cT2k1NRmK99KGNY5Rd_g2NbwoEW2jg8MNtaZ3_JD9kE57QHBylpTtHbP_anzB1hIkUyAoJQZHKIFXcETwBGOKraEr-v2zgVGhETBYw_6Xrvf6FFMdbvJ5hhQ",
+            "BQALNT3oiMM6a8nOPjzS1r837qj9a7y-zP-mUzi9sB0HeQ66g6eShkJSXc8JiXNWgFAhCMTmFMCeRDTLMDum_rXyohXHXL2S0A45BnCkkUsTWM0PTOmktGaPH4gqzeRKfDJu9wU_GBtmcV8rZoimTrgS0FUBLTeqTyagoR1Wyw",
         },
       })
       .then((res) => {
