@@ -2,7 +2,10 @@
   <div>
     <h1>View Your Albums</h1>
     <h2>Click One to Make Notes</h2>
-    <h3>{{ $route.params.access_token }}</h3>
+
+    <ul>
+      <li v-for="album in albums" :key="album.name">{{ album.album.name }}</li>
+    </ul>
   </div>
 </template>
 
@@ -14,15 +17,24 @@ import VueAxios from "vue-axios";
 
 Vue.use(VueAxios, axios);
 export default {
+  data() {
+    return {
+      albums: [],
+    };
+  },
   name: "Albums",
   mounted() {
-    console.log(this.$route.params.access_token);
     Vue.axios
       .get("https://api.spotify.com/v1/me/albums", {
-        headers: {},
+        headers: {
+          Authorization:
+            "Bearer " +
+            "BQBBYumZ72Z988m2MlVI3xAhy5LnQLM2VHMblQuqQ7jsoCqF29cT2k1NRmK99KGNY5Rd_g2NbwoEW2jg8MNtaZ3_JD9kE57QHBylpTtHbP_anzB1hIkUyAoJQZHKIFXcETwBGOKraEr-v2zgVGhETBYw_6Xrvf6FFMdbvJ5hhQ",
+        },
       })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data.items);
+        this.albums = res.data.items;
       })
       .catch((error) => {
         console.error(error);

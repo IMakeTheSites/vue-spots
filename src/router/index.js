@@ -6,31 +6,34 @@ import Login from "../views/Login.vue";
 import Albums from "../views/Albums.vue";
 Vue.use(VueRouter);
 
-const routes = [
-  {
-    path: "/",
-    name: "Home",
-    component: Home,
-  },
-  {
-    path: "/about",
-    name: "About",
-    component: About,
-  },
-  {
-    path: "/login",
-    name: "Login",
-    component: Login,
-  },
-  {
-    path: "/albums",
-    name: "Albums",
-    component: Albums,
-  },
-];
-
 const router = new VueRouter({
-  routes,
+  mode: "history",
+  routes: [
+    {
+      path: "/",
+      name: "Home",
+      component: Home,
+    },
+    {
+      path: "/about",
+      name: "About",
+      component: About,
+    },
+    {
+      path: "/login",
+      name: "Login",
+      component: Login,
+    },
+    {
+      path: "/albums",
+      name: "Albums",
+      component: Albums,
+    },
+    {
+      path: "/:catchAll(.*)",
+      name: "NotFound",
+    },
+  ],
 });
 
 export default router;

@@ -4,7 +4,7 @@
     <h1>Spotify Album Notes App Login</h1>
 
     <a
-      href="https://accounts.spotify.com/authorize?client_id=c5c79022e6054488a48a75140a35c988&redirect_uri=http://localhost:8080/callback/%23/albums&scope=user-library-read&response_type=token"
+      href="https://accounts.spotify.com/authorize?client_id=c5c79022e6054488a48a75140a35c988&redirect_uri=http://localhost:8080/albums&scope=user-library-read&response_type=token"
       >Login to Spotify</a
     >
     <!-- <button
